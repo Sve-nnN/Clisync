@@ -1,9 +1,18 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Home, Users, FileText, BarChart2, Lock, Cog, ExternalLink, CheckCircle } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Home,
+  Users,
+  FileText,
+  BarChart2,
+  Lock,
+  Cog,
+  ExternalLink,
+  CheckCircle,
+} from "lucide-react";
 
 export function LandingPageComponent() {
   return (
@@ -13,8 +22,22 @@ export function LandingPageComponent() {
           <h1 className="text-2xl font-bold text-gray-800">CliSync</h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><a href="#features" className="text-gray-600 hover:text-gray-800">Características</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-gray-800">Contacto</a></li>
+              <li>
+                <a
+                  href="#features"
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  Características
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  Contacto
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -23,15 +46,22 @@ export function LandingPageComponent() {
       <main className="flex-grow">
         <section className="bg-gray-50 py-20">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Gestión Inmobiliaria Simplificada</h2>
-            <p className="text-xl text-gray-600 mb-8">Somos la solución integral para administrar tus propiedades y clientes con eficiencia</p>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Gestión Inmobiliaria Simplificada
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Somos la solución integral para administrar tus propiedades y
+              clientes con eficiencia
+            </p>
             <Button size="lg">Solicitar Demo</Button>
           </div>
         </section>
 
         <section id="features" className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Características Principales</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              Características Principales
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <FeatureCard
                 icon={<Users className="w-10 h-10 text-blue-500" />}
@@ -74,7 +104,9 @@ export function LandingPageComponent() {
 
         <section className="bg-blue-50 py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">¿Por qué elegir CliSync?</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+              ¿Por qué elegir CliSync?
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <BenefitItem text="Gestión centralizada de clientes y propiedades" />
               <BenefitItem text="Seguimiento eficiente de ventas y alquileres" />
@@ -88,7 +120,9 @@ export function LandingPageComponent() {
 
         <section id="contact" className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Contáctanos</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+              Contáctanos
+            </h2>
             <form className="max-w-lg mx-auto">
               <div className="mb-4">
                 <Input type="text" placeholder="Nombre" />
@@ -99,7 +133,9 @@ export function LandingPageComponent() {
               <div className="mb-4">
                 <Textarea placeholder="Mensaje" />
               </div>
-              <Button type="submit" className="w-full">Enviar</Button>
+              <Button type="submit" className="w-full">
+                Enviar
+              </Button>
             </form>
           </div>
         </section>
@@ -111,10 +147,15 @@ export function LandingPageComponent() {
         </div>
       </footer>
     </div>
-  )
+  );
+}
+interface FeatureCardProps {
+  icon: React.ReactNode; // Puedes usar JSX.Element si prefieres un tipo más específico
+  title: string;
+  description: string;
 }
 
-function FeatureCard({ icon, title, description }) {
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <div className="flex items-center mb-4">
@@ -123,14 +164,16 @@ function FeatureCard({ icon, title, description }) {
       </div>
       <p className="text-gray-600">{description}</p>
     </div>
-  )
+  );
 }
-
-function BenefitItem({ text }) {
+interface BenefitItemProps {
+  text: string;
+}
+function BenefitItem({ text }: BenefitItemProps) {
   return (
     <div className="flex items-center">
       <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
       <span>{text}</span>
     </div>
-  )
+  );
 }
